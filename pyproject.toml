@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neotec_dual_sync"
+version = "1.1.0"
+description = "Settings-driven dual instance synchronization for Frappe"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Neotec", email = "support@neotec.example"}]
+dependencies = []
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["neotec_dual_sync*"]
+
+[tool.bench.frappe-dependencies]
+frappe = ">=15,<16"
+erpnext = ">=15,<16"

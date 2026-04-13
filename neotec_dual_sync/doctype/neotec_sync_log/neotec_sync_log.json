@@ -1,0 +1,96 @@
+{
+  "doctype": "DocType",
+  "name": "Neotec Sync Log",
+  "module": "Neotec Dual Sync",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "track_changes": 1,
+  "engine": "InnoDB",
+  "autoname": "hash",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    },
+    {
+      "role": "Neotec Dual Sync Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    },
+    {
+      "role": "Neotec Dual Sync User",
+      "read": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "reference_doctype",
+      "fieldtype": "Data",
+      "label": "Reference DocType",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "reference_name",
+      "fieldtype": "Data",
+      "label": "Reference Name",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "rule",
+      "fieldtype": "Link",
+      "label": "Rule",
+      "options": "Neotec Sync Rule"
+    },
+    {
+      "fieldname": "trigger_event",
+      "fieldtype": "Data",
+      "label": "Trigger Event"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Queued\nProcessing\nSuccess\nFailed\nSkipped",
+      "default": "Queued",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "retries",
+      "fieldtype": "Int",
+      "label": "Retries",
+      "default": "0"
+    },
+    {
+      "fieldname": "payload_json",
+      "fieldtype": "Long Text",
+      "label": "Payload JSON"
+    },
+    {
+      "fieldname": "response_json",
+      "fieldtype": "Long Text",
+      "label": "Response JSON"
+    },
+    {
+      "fieldname": "error_message",
+      "fieldtype": "Long Text",
+      "label": "Error Message"
+    }
+  ],
+  "actions": [],
+  "links": [],
+  "states": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

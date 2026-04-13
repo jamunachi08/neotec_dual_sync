@@ -1,0 +1,87 @@
+{
+  "doctype": "DocType",
+  "name": "Neotec Sync Rule",
+  "module": "Neotec Dual Sync",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "track_changes": 1,
+  "engine": "InnoDB",
+  "autoname": "hash",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    },
+    {
+      "role": "Neotec Dual Sync Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "disabled",
+      "fieldtype": "Check",
+      "label": "Disabled"
+    },
+    {
+      "fieldname": "source_doctype",
+      "fieldtype": "Link",
+      "label": "Source DocType",
+      "options": "DocType",
+      "reqd": 1
+    },
+    {
+      "fieldname": "target_doctype",
+      "fieldtype": "Data",
+      "label": "Target DocType",
+      "reqd": 1
+    },
+    {
+      "fieldname": "trigger_mode",
+      "fieldtype": "Select",
+      "label": "Trigger Mode",
+      "options": "On Submit\nBatch\nBoth\nManual",
+      "default": "On Submit"
+    },
+    {
+      "fieldname": "only_after_submit",
+      "fieldtype": "Check",
+      "label": "Only After Submit",
+      "default": "1"
+    },
+    {
+      "fieldname": "sync_condition",
+      "fieldtype": "Small Text",
+      "label": "Sync Condition"
+    },
+    {
+      "fieldname": "idempotency_field",
+      "fieldtype": "Data",
+      "label": "Idempotency Field"
+    },
+    {
+      "fieldname": "field_mappings",
+      "fieldtype": "Table",
+      "label": "Field Mappings",
+      "options": "Neotec Sync Field Map"
+    }
+  ],
+  "actions": [],
+  "links": [],
+  "states": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

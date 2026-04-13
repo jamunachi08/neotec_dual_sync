@@ -1,0 +1,65 @@
+{
+  "doctype": "DocType",
+  "name": "Neotec Sync Batch",
+  "module": "Neotec Dual Sync",
+  "custom": 0,
+  "is_submittable": 0,
+  "istable": 0,
+  "track_changes": 1,
+  "engine": "InnoDB",
+  "autoname": "hash",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    },
+    {
+      "role": "Neotec Dual Sync Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Draft\nQueued\nRunning\nCompleted\nFailed",
+      "default": "Draft",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "rule",
+      "fieldtype": "Link",
+      "label": "Rule",
+      "options": "Neotec Sync Rule",
+      "reqd": 1
+    },
+    {
+      "fieldname": "docnames_json",
+      "fieldtype": "Long Text",
+      "label": "Document Names JSON"
+    },
+    {
+      "fieldname": "last_run_on",
+      "fieldtype": "Datetime",
+      "label": "Last Run On"
+    }
+  ],
+  "actions": [],
+  "links": [],
+  "states": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

@@ -1,0 +1,5 @@
+include pyproject.toml
+include README.md
+include license.txt
+recursive-include neotec_dual_sync *.json *.py *.js *.txt *.md
+recursive-include fixtures *.json

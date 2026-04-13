@@ -1,0 +1,8 @@
+{
+  "name": "neotec_dual_sync",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'No frontend build required for neotec_dual_sync'"
+  }
+}
