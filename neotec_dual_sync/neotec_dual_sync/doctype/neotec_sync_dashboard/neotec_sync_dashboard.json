@@ -1,0 +1,71 @@
+{
+  "doctype": "DocType",
+  "name": "Neotec Sync Dashboard",
+  "module": "Neotec Dual Sync",
+  "custom": 0,
+  "is_submittable": 0,
+  "is_tree": 0,
+  "istable": 0,
+  "issingle": 1,
+  "engine": "InnoDB",
+  "track_changes": 1,
+  "autoname": "",
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "fields": [
+    {
+      "fieldname": "title",
+      "label": "Title",
+      "fieldtype": "Data",
+      "default": "Operations Snapshot"
+    },
+    {
+      "fieldname": "queued_logs",
+      "label": "Queued Logs",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "successful_logs",
+      "label": "Successful Logs",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "failed_logs",
+      "label": "Failed Logs",
+      "fieldtype": "Int",
+      "read_only": 1
+    },
+    {
+      "fieldname": "last_success_on",
+      "label": "Last Success On",
+      "fieldtype": "Datetime",
+      "read_only": 1
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1,
+      "print": 1,
+      "email": 1,
+      "export": 1
+    },
+    {
+      "role": "Neotec Dual Sync Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "share": 1,
+      "print": 1,
+      "email": 1,
+      "export": 1
+    }
+  ]
+}

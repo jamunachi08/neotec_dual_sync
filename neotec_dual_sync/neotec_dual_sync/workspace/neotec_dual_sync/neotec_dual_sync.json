@@ -1,0 +1,11 @@
+{
+  "doctype": "Workspace",
+  "name": "Neotec Dual Sync",
+  "module": "Neotec Dual Sync",
+  "title": "Neotec Dual Sync",
+  "label": "Neotec Dual Sync",
+  "icon": "shuffle",
+  "public": 1,
+  "is_hidden": 0,
+  "content": "[]"
+}

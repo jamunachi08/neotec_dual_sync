@@ -1,0 +1,5 @@
+recursive-include neotec_dual_sync *.json *.md *.py *.js *.css *.html *.txt *.csv *.svg
+recursive-include neotec_dual_sync/public *
+recursive-include fixtures *.json
+include README.md
+include license.txt
