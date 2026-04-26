@@ -1,0 +1,256 @@
+{
+  "doctype": "DocType",
+  "name": "Neotec Sync Settings",
+  "module": "Neotec Dual Sync",
+  "custom": 0,
+  "istable": 0,
+  "issingle": 1,
+  "engine": "InnoDB",
+  "track_changes": 0,
+  "is_submittable": 0,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "fields": [
+    {
+      "fieldname": "section_role",
+      "label": "Instance",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "enabled",
+      "label": "Enabled",
+      "fieldtype": "Check",
+      "default": "0",
+      "description": "Master switch. Disable to stop ALL sync activity instantly — event handlers and scheduled jobs short-circuit."
+    },
+    {
+      "fieldname": "instance_role",
+      "label": "Instance Role",
+      "fieldtype": "Select",
+      "options": "Source\nTarget\nBoth",
+      "reqd": 1,
+      "default": "Source"
+    },
+    {
+      "fieldname": "local_instance_id",
+      "label": "Local Instance ID",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_role",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "accept_inbound_sync",
+      "label": "Accept Inbound Sync",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+    {
+      "fieldname": "allow_outbound_sync",
+      "label": "Allow Outbound Sync",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+    {
+      "fieldname": "prevent_loopback",
+      "label": "Prevent Loopback",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+    {
+      "fieldname": "max_hop_count",
+      "label": "Max Hop Count",
+      "fieldtype": "Int",
+      "default": "3"
+    },
+
+    {
+      "fieldname": "section_scope",
+      "label": "Sync Scope (Module + DocType Filters)",
+      "fieldtype": "Section Break",
+      "description": "Restrict which documents this app even *looks at* on save. Documents outside this scope cost zero CPU on every save — the event handler short-circuits in O(1) without a DB query."
+    },
+    {
+      "fieldname": "include_drafts_in_scope",
+      "label": "Include Drafts in Scope",
+      "fieldtype": "Check",
+      "default": "0",
+      "description": "If unchecked, draft (docstatus=0) documents are ignored even when their DocType is in scope."
+    },
+    {
+      "fieldname": "module_filters",
+      "label": "Module Filters (allow-list, leave empty for all)",
+      "fieldtype": "Table",
+      "options": "Neotec Sync Module Filter",
+      "description": "If empty, no module filter is applied. If non-empty, ONLY documents whose DocType belongs to one of these modules are eligible for sync."
+    },
+
+    {
+      "fieldname": "section_api",
+      "label": "API Configuration",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "remote_base_url",
+      "label": "Remote Base URL",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "api_key",
+      "label": "API Key",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "api_secret",
+      "label": "API Secret",
+      "fieldtype": "Password"
+    },
+    {
+      "fieldname": "shared_secret",
+      "label": "Shared Secret",
+      "fieldtype": "Password"
+    },
+    {
+      "fieldname": "column_break_api",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "verify_ssl",
+      "label": "Verify SSL",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+    {
+      "fieldname": "timeout_seconds",
+      "label": "Timeout (Seconds)",
+      "fieldtype": "Int",
+      "default": "30"
+    },
+    {
+      "fieldname": "default_trigger_mode",
+      "label": "Default Trigger Mode",
+      "fieldtype": "Select",
+      "options": "On Submit\nOn Insert\nOn Update\nBatch\nBoth\nManual",
+      "default": "On Submit"
+    },
+    {
+      "fieldname": "signature_required",
+      "label": "Require Signed Requests",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+
+    {
+      "fieldname": "section_queue",
+      "label": "Queue, Retry & Throttling",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "batch_size",
+      "label": "Batch Size",
+      "fieldtype": "Int",
+      "default": "50",
+      "description": "How many queued rows the dispatcher picks up per run. Hard cap: 500."
+    },
+    {
+      "fieldname": "max_retries",
+      "label": "Max Retries",
+      "fieldtype": "Int",
+      "default": "3"
+    },
+    {
+      "fieldname": "retry_interval_minutes",
+      "label": "Retry Interval (Minutes)",
+      "fieldtype": "Int",
+      "default": "10",
+      "description": "Base interval. Actual back-off is interval * 2^retry_count."
+    },
+    {
+      "fieldname": "min_dispatch_interval_seconds",
+      "label": "Minimum Dispatch Interval (Seconds)",
+      "fieldtype": "Int",
+      "default": "60",
+      "description": "Throttle. Successive dispatch runs within this window are skipped. Set to 0 to disable throttling."
+    },
+    {
+      "fieldname": "column_break_queue",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "log_retention_days",
+      "label": "Log Retention (Days)",
+      "fieldtype": "Int",
+      "default": "30",
+      "description": "Success / Skipped / Duplicate / Loop Prevented logs older than this are deleted by the daily cleanup job. Failed logs are kept indefinitely."
+    },
+    {
+      "fieldname": "idempotency_retention_days",
+      "label": "Idempotency Retention (Days)",
+      "fieldtype": "Int",
+      "default": "60"
+    },
+    {
+      "fieldname": "enable_audit_snapshot",
+      "label": "Enable Audit Snapshot",
+      "fieldtype": "Check",
+      "default": "0",
+      "description": "When enabled, every outbound payload is captured at full size. This DOUBLES log table growth — leave off unless you need it."
+    },
+    {
+      "fieldname": "mask_secrets_in_logs",
+      "label": "Mask Secrets in Logs",
+      "fieldtype": "Check",
+      "default": "1"
+    },
+    {
+      "fieldname": "allow_delete_sync",
+      "label": "Allow Delete Sync",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "dry_run_mode",
+      "label": "Dry Run Mode",
+      "fieldtype": "Check",
+      "default": "0"
+    },
+    {
+      "fieldname": "log_level",
+      "label": "Log Level",
+      "fieldtype": "Select",
+      "options": "INFO\nWARN\nERROR\nDEBUG",
+      "default": "WARN",
+      "description": "Default WARN. DEBUG logs every dispatcher run to Error Log — use only when troubleshooting."
+    },
+
+    {
+      "fieldname": "section_rules",
+      "label": "Rules",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "rules",
+      "label": "Rules",
+      "fieldtype": "Table",
+      "options": "Neotec Sync Rule"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1,
+      "share": 1, "print": 1, "email": 1, "export": 1
+    },
+    {
+      "role": "Neotec Dual Sync Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1,
+      "share": 1, "print": 1, "email": 1, "export": 1
+    },
+    {
+      "role": "Neotec Dual Sync User",
+      "read": 1, "export": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "doctype": "Page",
+  "name": "neotec-sync-help",
+  "page_name": "neotec-sync-help",
+  "title": "How Sync Works",
+  "module": "Neotec Dual Sync",
+  "standard": "Yes",
+  "system_page": 0,
+  "roles": [
+    { "role": "System Manager" },
+    { "role": "Neotec Dual Sync Manager" },
+    { "role": "Neotec Dual Sync User" }
+  ]
+}

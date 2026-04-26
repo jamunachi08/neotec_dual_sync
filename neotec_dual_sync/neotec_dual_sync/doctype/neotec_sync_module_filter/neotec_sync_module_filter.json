@@ -1,0 +1,50 @@
+{
+  "doctype": "DocType",
+  "name": "Neotec Sync Module Filter",
+  "module": "Neotec Dual Sync",
+  "custom": 0,
+  "istable": 1,
+  "issingle": 0,
+  "engine": "InnoDB",
+  "track_changes": 0,
+  "is_submittable": 0,
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "fields": [
+    {
+      "fieldname": "enabled",
+      "label": "Enabled",
+      "fieldtype": "Check",
+      "default": "1",
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "module_name",
+      "label": "Module",
+      "fieldtype": "Link",
+      "options": "Module Def",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 4
+    },
+    {
+      "fieldname": "notes",
+      "label": "Notes",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "columns": 6
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1,
+      "share": 1, "print": 1, "email": 1, "export": 1
+    },
+    {
+      "role": "Neotec Dual Sync Manager",
+      "read": 1, "write": 1, "create": 1, "delete": 1
+    }
+  ]
+}

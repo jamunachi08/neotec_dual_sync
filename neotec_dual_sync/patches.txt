@@ -1,0 +1,1 @@
+neotec_dual_sync.patches.v2_5_0.upgrade_from_v2_4
